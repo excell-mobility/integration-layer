@@ -19,5 +19,6 @@ install:
   - composer info                                                             # print installed packages
 
 notifications:
-  email:
-    - andre.rademacher@entiretec.com
+  email: true
+  slack:
+    secure: gOOBHmk04L+s7UypOgVDL4Q2y5VKhxccqOS6qsUJd7jo1+nCWujkNSxmrhPRXwsrAU2wAuPg2QT5M2ogRMvCmQK+Pl4zJf7kJ9Kby1gKYaCsID7c5npJ0ZY02xEtv2a/Hea1WT5hYAPIaw6km0hiXdQGNpvzMefHvMt9mmZ56Glz9PIpbZkyVfcnG6sh3KPHYPMkkxrCnBoWgd0AMtAfEz2LvriO6py3WngFkDeIif9qKDXLvSC0m1vmNG1PYBe9pcnOPIPY02f1naG5v0SgRebim8yOBuXgrpyzNFluzNDW9sU17TSPQLv85XT+HH5l0bnZ2+gwzyI9P4yzC36hqJOcOyRABLykIoKgEzNoSd+ZPKpF3odwkIUL9GXRWO79M4QKiHzyUfFXELpI6/9YttLFdkdKAd/o9y+xZoHr22CCsBtK9yUmbmmro62C/NgC6ZV6RkI/5IuiLjZGJpTnu+IUqoa76NtPs+xADDfitiU8SelOloi+E2Cy/9q7M6zmqP0G77wxIg6+awFpadgqg3KcKR2u2bSpbDgteMRRt1amx8kY5v8vFfKg1H71mnxRPvNyDJ9K7EkOf0YwilvIoy/0PIBzB/QNERRKqtSOZxJKGsajIScry3t0X4ImAO4SAjSN8O4hE2G6eOCFgyQKvsxbM0f4PHuY+3lKi6Rpq4U=
