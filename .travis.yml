@@ -1,0 +1,25 @@
+sudo: false
+language: php
+
+php:
+  - '7.0'
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  global:
+    - GH_REF: github.com/excell-mobility/integration-layer.git
+    - GH_USER_EMAIL: andre.rademacher.business@googlemail.com
+    - GH_USER_NAME: "André Rademacher"
+
+before_install:
+  - composer self-update                                                      # self-update composer before running it
+
+install:
+  - composer install --no-interaction                                         # install dependencies via composer without user interaction
+  - composer info                                                             # print installed packages
+
+notifications:
+  email: true
