@@ -17,9 +17,9 @@ env:
 # before_install:
 #   - composer self-update                                                      # self-update composer before running it
 
-# install:
-#   - composer install --no-interaction --dev                                   # install dependencies via composer without user interaction
-#   - composer info                                                             # print installed packages
+install:
+  - composer install --no-interaction --dev                                   # install dependencies via composer without user interaction
+  - composer info                                                             # print installed packages
 
 notifications:
   email: true
