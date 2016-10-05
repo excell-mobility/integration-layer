@@ -12,14 +12,13 @@ env:
   global:
     - GH_REF: github.com/excell-mobility/integration-layer.git
     - GH_USER_EMAIL: andre.rademacher.business@googlemail.com
-    - GH_USER_NAME: "André Rademacher"
-
-# before_install:
-#   - composer self-update                                                      # self-update composer before running it
+    - GH_USER_NAME: André Rademacher
 
 install:
   - composer install --no-interaction --dev                                   # install dependencies via composer without user interaction
   - composer info                                                             # print installed packages
 
 notifications:
-  email: true
+  email:
+    recipients:
+      - andre.rademacher@entiretec.com
