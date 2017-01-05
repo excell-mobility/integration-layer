@@ -27,7 +27,7 @@ $app = $container->get(Application::class);
 /**
  * API v1.0
  */
-$app->get('/api/v1.0/ping', Action\PingAction::class, 'v1.0_ping');
+$app->get('/api/v1.0/ping', Action\PingAction::class, 'api.ping');
 
 
 /**

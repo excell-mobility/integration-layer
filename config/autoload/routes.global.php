@@ -7,7 +7,7 @@ return [
             App\Action\PingAction::class => App\Action\PingAction::class,
         ],
         'factories' => [
-            App\Action\HomePageAction::class => App\Action\HomePageFactory::class,
+            App\Action\HomePageAction::class => App\Factory\HomePageFactory::class,
         ],
     ],
 ];
