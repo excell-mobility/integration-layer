@@ -1,6 +1,5 @@
 <?php
 
-use Whoops\Handler\PrettyPageHandler;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;

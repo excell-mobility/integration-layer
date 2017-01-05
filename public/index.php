@@ -24,12 +24,6 @@ $container = require 'config/container.php';
 /** @var \Zend\Expressive\Application $app */
 $app = $container->get(Application::class);
 
-
-/**
- * First, error handling & stuff
- */
-$app->pipeErrorHandler('/', ErrorHandler::class);
-
 /**
  * API v1.0
  */
