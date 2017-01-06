@@ -2,8 +2,8 @@
 
 namespace AppTest\Action;
 
-use App\Action\HomePageAction;
-use App\Action\HomePageFactory;
+use App\Action\Page\HomePageAction;
+use App\Factory\HomePageFactory;
 use Interop\Container\ContainerInterface;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;

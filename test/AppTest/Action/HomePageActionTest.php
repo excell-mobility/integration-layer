@@ -2,7 +2,7 @@
 
 namespace AppTest\Action;
 
-use App\Action\HomePageAction;
+use App\Action\Page\HomePageAction;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Router\RouterInterface;
