@@ -6,7 +6,7 @@ namespace App\Api\v1\Auth\Token;
  *
  * Long description for class
  *
- * @package   Broadcasting Service
+ * @package   Integration Layer
  * @author    André Rademacher <andre.rademacher@entiretec.com>
  * @copyright Copyright (c) 2017 ENTIRETEC (http://www.entiretec.com)
  * @license   ENTIRETEC proprietery license
