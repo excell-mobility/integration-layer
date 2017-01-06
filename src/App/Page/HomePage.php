@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action\Page;
+namespace App\Page;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -8,9 +8,9 @@ use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Diactoros\Response\JsonResponse;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template;
-use Zend\Expressive\ZendView\ZendViewRenderer;
 
-class HomePageAction
+
+class HomePage
 {
     private $router;
 

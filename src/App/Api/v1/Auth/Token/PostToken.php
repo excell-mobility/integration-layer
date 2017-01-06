@@ -1,5 +1,5 @@
 <?php
-namespace App\Action\Api\v1\Auth\Token;
+namespace App\Api\v1\Auth\Token;
 
 /**
  * Short description for class
@@ -11,7 +11,7 @@ namespace App\Action\Api\v1\Auth\Token;
  * @copyright Copyright (c) 2017 ENTIRETEC (http://www.entiretec.com)
  * @license   ENTIRETEC proprietery license
  */
-class GetTokenAction
+class PostToken
 {
 
 }

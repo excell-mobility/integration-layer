@@ -1,17 +1,17 @@
 <?php
 
-namespace AppTest\Action;
+namespace AppTest\Api\v1;
 
-use App\Action\Api\v1\GetPingAction;
+use App\Api\v1\GetPing;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 
-class PingActionTest extends \PHPUnit_Framework_TestCase
+class PingTest extends \PHPUnit_Framework_TestCase
 {
     public function testResponse()
     {
-        $pingAction = new GetPingAction();
-        $response = $pingAction(new ServerRequest(['/']), new Response(), function () {
+        $ping = new GetPing();
+        $response = $ping(new ServerRequest(['/']), new Response(), function () {
         });
         $json = json_decode((string) $response->getBody());
 

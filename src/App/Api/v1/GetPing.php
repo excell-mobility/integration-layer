@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Action\Api\v1;
+namespace App\Api\v1;
 
 use Zend\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class GetPingAction
+class GetPing
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
