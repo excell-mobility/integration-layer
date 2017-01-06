@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\Action\HomePageAction;
+use App\Action\Page\HomePageAction;
 use Interop\Container\ContainerInterface;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;

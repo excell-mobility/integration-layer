@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Action\Api;
+use App\Action\Page;
 use Zend\Expressive\Application;
 
 // Delegate static file requests back to the PHP built-in webserver
@@ -27,12 +29,12 @@ $app = $container->get(Application::class);
 /**
  * API v1.0
  */
-$app->get('/api/v1.0/ping', Action\PingAction::class, 'api.ping');
+$app->get('/api/v1/ping', Api\v1\GetPingAction::class, 'api.ping');
 
 
 /**
  * Homepage
  */
-$app->get('/', Action\HomePageAction::class, 'home');
+$app->get('/', Page\HomePageAction::class, 'home');
 
 $app->run();
