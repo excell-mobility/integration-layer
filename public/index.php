@@ -30,8 +30,6 @@ $app = $container->get(Application::class);
 /**
  * API v1.0
  */
-$app->get( '/api/v1/ping',          Api\v1\GetPing::class,                  'api.v1.ping');
-
 $app->post('/api/v1/auth/tokens',   Api\v1\Auth\Token\PostToken::class,     'api.v1.auth.tokens');
 
 /**
