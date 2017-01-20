@@ -39,7 +39,7 @@ class Validation
     {
         $contentType = $this->request->getHeaderLine('Content-Type');
         if (false === strpos($contentType, 'application/json')) {
-            throw new \Exception('Content-Type application/json is mandatory.', 400);
+            throw new \Exception('Content-Type application/json is mandatory.', 415);
         }
     }
 
