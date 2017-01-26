@@ -64,7 +64,8 @@ class PostToken
         // first, validate the request
         $claimsDecoded = $this->validate($request);
 
-        // check given credencials
+        // check user authorisation - is tenant / user allowed to access the resource ?
+        // currently, there is no admin backend, so do that via local configuration first!
 
         // generate jti claim (JWT ID) as RFC 4122 Version 5 UUID (name based and hashed using SHA1)
         $issuer = $request->getUri()->getScheme() . '://' . $request->getUri()->getHost();

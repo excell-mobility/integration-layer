@@ -27,14 +27,32 @@ $container = require 'config/container.php';
 /** @var \Zend\Expressive\Application $app */
 $app = $container->get(Application::class);
 
+
 /**
- * API v1.0
+ * API v1
+ *
+ *
+ * The API v1 exposes the following calls:
+ *
+ * POST /auth/tokens    creates a new signed JSON Web Token and returns HTTP 201 Created
  */
 $app->post('/api/v1/auth/tokens',   Api\v1\Auth\Token\PostToken::class,     'api.v1.auth.tokens');
 
+
 /**
- * Pages
+ * All the web pages are handled here
+ *
  */
 $app->get('/',                      Page\HomePage::class,                   'home');
 
+
+/**
+ * Add admin backend stuff here.
+ *
+ */
+
+/**
+ * Run that!
+ *
+ */
 $app->run();

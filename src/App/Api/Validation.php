@@ -91,4 +91,49 @@ class Validation
             }
         }
     }
+
+    public function validateClientCertificate()
+    {
+        // check if HTTPS is enabled
+        $this->validateHttpsIsEnabled();
+        $this->validateClientCertificateIsSent();
+        $this->validateClientCertificateSuccessfulVerified();
+    }
+
+    /**
+     * Checks if the request was sent using HTTPS and HTTPS is enabled.
+     *
+     * @throws \Exception
+     */
+    public function validateHttpsIsEnabled()
+    {
+        if (!(isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']))) {
+            throw new \Exception('HTTPS is not enabled, please check your vhost configuration to force HTTPS in any case.', 500);
+        }
+    }
+
+    /**
+     * Checks if a client certificate was sent.
+     *
+     * @throws \Exception
+     */
+    public function validateClientCertificateIsSent()
+    {
+        if (!(isset($_SERVER['SSL_CLIENT_V_END']) && !empty($_SERVER['SSL_CLIENT_V_END']))) {
+            throw new \Exception('SSL client certificate was not sent.', 401);
+        }
+    }
+
+    /**
+     * Checks if the client certificate was successfully verified using the public ExCELL Intermediate CA certificate.
+     * Client certificate verification is done by the web server.
+     *
+     * @throws \Exception
+     */
+    public function validateClientCertificateSuccessfulVerified()
+    {
+        if (!(isset($_SERVER['SSL_CLIENT_VERIFY']) && $_SERVER['SSL_CLIENT_VERIFY'] === 'SUCCESS')) {
+            throw new \Exception('SSL client certificate could not be verified successfully.', 401);
+        }
+    }
 }

@@ -48,6 +48,15 @@ return [
             'middleware' => [
                 ApplicationFactory::ROUTING_MIDDLEWARE,
                 Helper\UrlHelperMiddleware::class,
+
+                /**
+                 * API v1: /api/v1
+                 *
+                 */
+                App\Api\v1\ValidateSslClientCertificate::class,     // check SSL client certificate for
+
+
+
                 // Add more middleware here that needs to introspect the routing
                 // results; this might include:
                 // - route-based authentication
