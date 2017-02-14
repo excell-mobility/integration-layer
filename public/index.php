@@ -2,8 +2,9 @@
 
 namespace App;
 
-use App\Action\Api;
-use App\Action\Page;
+use App\Api;
+use App\Page;
+use LosMiddleware\LosLog\ErrorLogger;
 use Zend\Expressive\Application;
 
 // Delegate static file requests back to the PHP built-in webserver
@@ -15,10 +16,10 @@ if (php_sapi_name() === 'cli-server'
 
 chdir(dirname(__DIR__));
 
-// log all fatal errors via shutdown handler
-require_once './src/App/ShutdownHandler.php';
-
 require 'vendor/autoload.php';
+
+// register error & shutdown handler
+ErrorLogger::registerHandlers('error.log', 'data/log');
 
 /** @var \Interop\Container\ContainerInterface $container */
 $container = require 'config/container.php';
@@ -26,15 +27,32 @@ $container = require 'config/container.php';
 /** @var \Zend\Expressive\Application $app */
 $app = $container->get(Application::class);
 
-/**
- * API v1.0
- */
-$app->get('/api/v1/ping', Api\v1\GetPingAction::class, 'api.ping');
-
 
 /**
- * Homepage
+ * API v1
+ *
+ *
+ * The API v1 exposes the following calls:
+ *
+ * POST /auth/tokens    creates a new signed JSON Web Token and returns HTTP 201 Created
  */
-$app->get('/', Page\HomePageAction::class, 'home');
+$app->post('/api/v1/auth/tokens',   Api\v1\Auth\Token\PostToken::class,     'api.v1.auth.tokens');
 
+
+/**
+ * All the web pages are handled here
+ *
+ */
+$app->get('/',                      Page\HomePage::class,                   'home');
+
+
+/**
+ * Add admin backend stuff here.
+ *
+ */
+
+/**
+ * Run that!
+ *
+ */
 $app->run();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Factory;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
@@ -21,6 +22,7 @@ return [
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
+            \Lcobucci\JWT\Builder::class => \App\Factory\JwtTokenBuilderFactory::class
         ],
     ],
 ];
