@@ -25,6 +25,7 @@
             "post": {
                 "summary": "Creates a JSON Web Token that can be used to access various ExCELL services for a limited amount of time.",
                 "description": "Authentication is done via SSL client authentication using the accessing application's SSL certificate, created by the ExCELL Certification Authority.",
+
                 "tags": [
                     "auth"
                 ],
