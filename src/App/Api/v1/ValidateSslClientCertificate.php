@@ -19,7 +19,7 @@ class ValidateSslClientCertificate
 {
     /**
      * Checks if a SSL client certificate is given and the web server's validation was successful.
-     * If not, n exception is thrown and a HTTP 401 response generated.
+     * If not, an exception is thrown and a HTTP 401 response generated.
      *
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response

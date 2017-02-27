@@ -98,7 +98,7 @@ class PostToken
     }
 
     /**
-     * Do the validation and return the decoded JSON Object if successfull.
+     * Do the validation and return the decoded JSON Object if successful.
      *
      * @param ServerRequestInterface $request
      * @return \StdClass
