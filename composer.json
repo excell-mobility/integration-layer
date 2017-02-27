@@ -10,24 +10,24 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "zendframework/zend-expressive": "^1.0",
-        "zendframework/zend-expressive-helpers": "^2.1",
-        "zendframework/zend-log":"^2.9",
-        "zendframework/zend-stdlib": "^3.1",
-        "zendframework/zend-expressive-fastroute": "^1.2",
-        "zendframework/zend-servicemanager": "^3.1",
-        "zendframework/zend-expressive-zendviewrenderer": "^1.1",
+        "php": "~7.1",
+        "zendframework/zend-expressive": "~1.1",
+        "zendframework/zend-expressive-helpers": "~2.2",
+        "zendframework/zend-log":"~2.9",
+        "zendframework/zend-stdlib": "~3.1",
+        "zendframework/zend-expressive-fastroute": "~1.3",
+        "zendframework/zend-servicemanager": "~3.2",
+        "zendframework/zend-expressive-zendviewrenderer": "~1.2",
         "los/loslog":"~2.0",
-        "nocarrier/hal": "^0.9",
+        "nocarrier/hal": "~0.9",
         "lcobucci/jwt": "~3.2",
         "ramsey/uuid":"~3.5",
         "los/api-problem":"~1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.5",
-        "squizlabs/php_codesniffer": "^2.7",
-        "filp/whoops": "^2.1"
+        "phpunit/phpunit": "~6.0",
+        "squizlabs/php_codesniffer": "~2.8",
+        "filp/whoops": "~2.1"
     },
     "autoload": {
         "psr-4": {
