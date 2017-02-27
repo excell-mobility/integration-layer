@@ -34,9 +34,14 @@ $app = $container->get(Application::class);
  *
  * The API v1 exposes the following calls:
  *
+ * GET  /health         returns the service's current status (UP or DOWN), optionally status of internal or external resources are added.
+ *
  * POST /auth/tokens    creates a new signed JSON Web Token and returns HTTP 201 Created
+ *
  */
+$app->get('/api/v1/health',         Api\v1\Health\GetHealth::class,         'api.v1.health');
 $app->post('/api/v1/auth/tokens',   Api\v1\Auth\Token\PostToken::class,     'api.v1.auth.tokens');
+
 
 
 /**
