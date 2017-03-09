@@ -1,4 +1,6 @@
 <?php
+
+use App\Factory;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
@@ -15,10 +17,12 @@ return [
             // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
         ],
+
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
+            \Lcobucci\JWT\Builder::class => \App\Factory\JwtTokenBuilderFactory::class
         ],
     ],
 ];

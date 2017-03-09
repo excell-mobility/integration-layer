@@ -1,0 +1,109 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "ExCELL Integration Layer API",
+        "version": "v1",
+        "contact": {
+            "name": "André Rademacher",
+            "email": "andre.rademacher@entiretec.com",
+            "url": "http://www.entiretec.com"
+        },
+        "description": "The Integration Layer enables a secure way of authentication, authorisation and access management using SSL client authentication and JSON Web Tokens."
+    },
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/api/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/hal+json"
+    ],
+    "paths": {
+        "/auth/tokens": {
+            "post": {
+                "summary": "Creates a JSON Web Token that can be used to access various ExCELL services for a limited amount of time.",
+                "description": "Authentication is done via SSL client authentication using the accessing application's SSL certificate, created by the ExCELL Certification Authority.",
+                "tags": [
+                    "auth"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/token"
+                        },
+                        "required": true,
+                        "description": "POST body"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "After successful SSL client authentication and authorization checks, the JSON Web Token is generated and returned, allowing the given tenant's user the access to the selected service for a limited amount of time."
+                    },
+                    "400": {
+                        "description": "Bad Request. This error and a quick explanation is returned in case the validation of the request body failed. Examples are: invalid JSON, missing required parameters etc."
+                    },
+                    "401": {
+                        "description": "Unauthorized. This error is returned in case the SSL client authentication failed."
+                    },
+                    "402": {
+                        "description": "Payment Required. The selected premium service requires that the service fee has been paid."
+                    },
+                    "403": {
+                        "description": "Forbidden. The user or his tenant is not authorized to access the selected service, therefore no token could be generated."
+                    },
+                    "404": {
+                        "description": "Not found. The given tenant or selected service is not registered with the Integration Layer."
+                    },
+                    "415": {
+                        "description": "Unsupported Media Type. This error is returned in case the requested Content-Type does not match application/json."
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "summary": "Performs a quick internal check and responds its current status.",
+                "description": "This can be used to check that the service is currently available and internal (e.g. database) or external resources (e.g. payment provider API) are currently available.",
+                "tags": [
+                    "health"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok. Everything is ok and works as expected."
+                    },
+                    "401": {
+                        "description": "Unauthorized. SSL client certificate was not sent."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "token": {
+            "description": "the token object",
+            "properties": {
+                "tenant": {
+                    "type": "string",
+                    "description": "Identifies the accessing application in this multi tenant environment by it's URL , e.g. \"https://app.example.org\""
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The tenant's user that the JSON Web Token is generated for, e.g. \"john.smith@example.org\". This has to be unique for the tenant."
+                },
+                "service": {
+                    "type": "string",
+                    "description": "Specifies the service that is to be accessed, e.g. \"https://routing.example-service.com\"."
+                }
+            },
+            "required": [
+                "tenant",
+                "user",
+                "service"
+            ]
+        }
+    }
+}

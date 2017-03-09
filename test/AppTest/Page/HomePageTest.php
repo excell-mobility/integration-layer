@@ -1,13 +1,14 @@
 <?php
 
-namespace AppTest\Action;
+namespace AppTest\Page;
 
-use App\Action\HomePageAction;
+use App\Page\HomePage;
+use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Router\RouterInterface;
 
-class HomePageActionTest extends \PHPUnit_Framework_TestCase
+class HomePageTest extends TestCase
 {
     /** @var RouterInterface */
     protected $router;
@@ -19,7 +20,7 @@ class HomePageActionTest extends \PHPUnit_Framework_TestCase
 
     public function testResponse()
     {
-        $homePage = new HomePageAction($this->router->reveal(), null);
+        $homePage = new HomePage($this->router->reveal(), null);
         $response = $homePage(new ServerRequest(['/']), new Response(), function () {
         });
 

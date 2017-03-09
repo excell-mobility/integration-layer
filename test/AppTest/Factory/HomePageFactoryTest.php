@@ -1,14 +1,15 @@
 <?php
 
-namespace AppTest\Action;
+namespace AppTest\Factory;
 
-use App\Action\HomePageAction;
-use App\Action\HomePageFactory;
+use App\Page\HomePage;
+use App\Factory\HomePageFactory;
 use Interop\Container\ContainerInterface;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Router\RouterInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
-class HomePageFactoryTest extends \PHPUnit_Framework_TestCase
+class HomePageFactoryTest extends TestCase
 {
     /** @var ContainerInterface */
     protected $container;
@@ -30,7 +31,7 @@ class HomePageFactoryTest extends \PHPUnit_Framework_TestCase
 
         $homePage = $factory($this->container->reveal());
 
-        $this->assertTrue($homePage instanceof HomePageAction);
+        $this->assertTrue($homePage instanceof HomePage);
     }
 
     public function testFactoryWithTemplate()
@@ -45,6 +46,6 @@ class HomePageFactoryTest extends \PHPUnit_Framework_TestCase
 
         $homePage = $factory($this->container->reveal());
 
-        $this->assertTrue($homePage instanceof HomePageAction);
+        $this->assertTrue($homePage instanceof HomePage);
     }
 }

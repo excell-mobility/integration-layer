@@ -1,7 +1,14 @@
 <?php
 
 return [
-    'debug' => true,
 
+    // disable config cache locally
     'config_cache_enabled' => false,
+
+    'jwt' => [
+        'lifetime' => 600,                                  // the token's lifetime in seconds. JWTs can't be revoked, so choose a low value here (<1h)
+        'algorithm' => 'RS512',                             // the signing algorithm, supported by the JWT library
+        'private_key_file' => 'file:///path/to/private.key',// path to private key file
+        'public_key_file' => 'file:///path/to/public.crt',  // path to public key file
+    ]
 ];
