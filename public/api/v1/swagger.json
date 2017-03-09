@@ -25,7 +25,6 @@
             "post": {
                 "summary": "Creates a JSON Web Token that can be used to access various ExCELL services for a limited amount of time.",
                 "description": "Authentication is done via SSL client authentication using the accessing application's SSL certificate, created by the ExCELL Certification Authority.",
-
                 "tags": [
                     "auth"
                 ],
@@ -76,8 +75,8 @@
                     "200": {
                         "description": "Ok. Everything is ok and works as expected."
                     },
-                    "503": {
-                        "description": "Service Unavailable. The service does NOT work as expected because some crucial part (e.g. a required external API) does NOT respond correctly."
+                    "401": {
+                        "description": "Unauthorized. SSL client certificate was not sent."
                     }
                 }
             }
