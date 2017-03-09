@@ -3,11 +3,12 @@
 namespace AppTest\Page;
 
 use App\Page\HomePage;
+use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Router\RouterInterface;
 
-class HomePageTest extends \PHPUnit_Framework_TestCase
+class HomePageTest extends TestCase
 {
     /** @var RouterInterface */
     protected $router;
