@@ -68,18 +68,19 @@ class PostToken
         // currently, there is no admin backend, so do that via local configuration first!
 
         // generate jti claim (JWT ID) as RFC 4122 Version 5 UUID (name based and hashed using SHA1)
-        $issuer = $request->getUri()->getScheme() . '://' . $request->getUri()->getHost();
+        $issuer = $request->getUri()->getHost();
         $uuid = Uuid::uuid5(Uuid::NAMESPACE_DNS, $issuer)->toString();
 
         // build and sign the token
-        $token = (string) $this->builder
+        $this->builder
             ->setId($uuid)
             ->setIssuer($issuer)
             ->setSubject($claimsDecoded->tenant)
             ->set('user', $claimsDecoded->user)
-            ->set('service', $claimsDecoded->service)
-            ->sign(new Sha512(), new Key($this->config['jwt']['private_key_file']))
-            ->getToken();
+            ->set('service', $claimsDecoded->service);
+
+        $this->builder->sign(new Sha512(), new Key($this->config['jwt']['private_key_file'], $this->config['jwt']['private_key_pass']));
+        $token = (string) $this->builder->getToken();
 
         // create hal+json
         $hal = new Hal(
