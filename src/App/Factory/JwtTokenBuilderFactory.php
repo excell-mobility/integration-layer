@@ -49,11 +49,11 @@ class JwtTokenBuilderFactory
             $algorithmsUsingAsymetricEncryption = ['RS256', 'RS384', 'RS512', 'ES256', 'ES384', 'ES512'];
             if (in_array($algorithm, $algorithmsUsingAsymetricEncryption)) {
 
-                if (!isset($jwtConfig['jwt']['private_key_file'])) {
+                if (!isset($jwtConfig['jwt']['il_private_key_file'])) {
                     throw new \Exception('The private key file has not been set, but is needed for the chosen signing algorithm ' . $algorithm . '. Please refer to the local.php.dist configuration file.', 500);
                 }
 
-                if (!isset($jwtConfig['jwt']['public_key_file'])) {
+                if (!isset($jwtConfig['jwt']['il_public_key_file'])) {
                     throw new \Exception('The public key file has not been set, but is needed for the chosen signing algorithm ' . $algorithm . '. Please refer to the local.php.dist configuration file.', 500);
                 }
             }

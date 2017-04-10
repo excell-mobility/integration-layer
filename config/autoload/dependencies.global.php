@@ -22,7 +22,7 @@ return [
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
-            \Lcobucci\JWT\Builder::class => \App\Factory\JwtTokenBuilderFactory::class
+            \Lcobucci\JWT\Builder::class => Factory\JwtTokenBuilderFactory::class
         ],
     ],
 ];

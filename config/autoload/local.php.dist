@@ -6,9 +6,11 @@ return [
     'config_cache_enabled' => false,
 
     'jwt' => [
-        'lifetime' => 600,                                  // the token's lifetime in seconds. JWTs can't be revoked, so choose a low value here (<1h)
-        'algorithm' => 'RS512',                             // the signing algorithm, supported by the JWT library
-        'private_key_file' => 'file:///path/to/private.key',// path to private key file
-        'public_key_file' => 'file:///path/to/public.crt',  // path to public key file
+        'lifetime' => 600,                                      // the token's lifetime in seconds. JWTs can't be revoked, so choose a low value here (<1h)
+        'algorithm' => 'RS512',                                 // the signing algorithm, supported by the JWT library
+        'ca_public_key_file' => 'file:///path/to/ca.public.crt',// path to (Intermediate) CA's public key file (=certificate), this is used to check incoming traffic
+        'il_public_key_file' => 'file:///path/to/public.crt',   // path to integration layer's public key file, this one is currently not used
+        'il_private_key_file' => 'file:///path/to/private.key', // path to integration layer's private key file, this one is used to sign the JWTs
+        'il_private_key_pass' => '123456',                      // this password is needed to decrypt the IL's private key file
     ]
 ];

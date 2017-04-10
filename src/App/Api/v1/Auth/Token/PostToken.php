@@ -79,7 +79,7 @@ class PostToken
             ->set('user', $claimsDecoded->user)
             ->set('service', $claimsDecoded->service);
 
-        $this->builder->sign(new Sha512(), new Key($this->config['jwt']['private_key_file'], $this->config['jwt']['private_key_pass']));
+        $this->builder->sign(new Sha512(), new Key($this->config['jwt']['il_private_key_file'], $this->config['jwt']['il_private_key_pass']));
         $token = (string) $this->builder->getToken();
 
         // create hal+json
